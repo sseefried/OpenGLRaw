@@ -39,6 +39,9 @@ flag UseGlXGetProcAddress
    description:
       Use glXGetProcAddress instead of dlsym on non-Windows/-Darwin platforms.
 
+flag android
+  description: Build for Android
+
 library
    exposed-modules:
       Graphics.Rendering.OpenGL.Raw,
@@ -295,7 +298,11 @@ library
          if os(ios)
             frameworks: OpenGLES
          else
-            extra-libraries: GL
+           if flag(android)
+             extra-libraries: GLESv2
+             cc-options: -DUSE_DLSYM -DANDROID
+           else
+             extra-libraries: GL
 
 source-repository head
   type:     git
