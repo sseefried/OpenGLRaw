@@ -300,7 +300,7 @@ library
          else
            if flag(android)
              extra-libraries: GLESv2
-             cc-options: -DUSE_DLSYM -DANDROID
+             cc-options: -DUSE_DLSYM
            else
              extra-libraries: GL
 
