@@ -41,6 +41,7 @@ flag UseGlXGetProcAddress
 
 flag android
   description: Build for Android
+  Default: False
 
 library
    exposed-modules:
